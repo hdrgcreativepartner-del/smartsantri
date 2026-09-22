@@ -1,6 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const {Model,seed,jakartaDay} = require('../dist/store.js');
+const {Model,seed,jakartaDay} = require('../store.js');
 class MemoryRepository {
   constructor(){this.state=seed();this.files=new Map();}
   async read(){return structuredClone(this.state);}

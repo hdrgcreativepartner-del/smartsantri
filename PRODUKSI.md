@@ -16,6 +16,6 @@ Kode ini adalah trial frontend. Hosting berbayar dan domain saja belum membuat d
 
 Model data dapat menjadi dasar migrasi: `users`, `classes`, `subjects`, `clubs`, `materials`, `assignments`, `submissions`, `attendance`, `news`, `announcements`, dan `achievements`. Untuk database relasional, pisahkan penugasan guru, keanggotaan eskul, soal, pilihan jawaban, serta kunci jawaban ke tabel terkait.
 
-`BrowserRepository` di `dist/store.js` memisahkan akses IndexedDB dari model, tetapi mengganti repository saja **tidak cukup**: seluruh otorisasi, penilaian, validasi pengumpulan, dan pemilihan data yang boleh dikirim harus dipindahkan atau diterapkan ulang pada backend. Jangan mengirim seluruh state sekolah beserta kunci jawaban ke browser pengguna.
+`BrowserRepository` di `store.js` memisahkan akses IndexedDB dari model, tetapi mengganti repository saja **tidak cukup**: seluruh otorisasi, penilaian, validasi pengumpulan, dan pemilihan data yang boleh dikirim harus dipindahkan atau diterapkan ulang pada backend. Jangan mengirim seluruh state sekolah beserta kunci jawaban ke browser pengguna.
 
 Pilihan teknologi backend dapat ditetapkan setelah hosting dipilih. Tidak ada backend, akun layanan berbayar, domain, rahasia, atau token operasional yang dibuat dalam paket trial ini.

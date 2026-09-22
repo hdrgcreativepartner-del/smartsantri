@@ -56,22 +56,22 @@ Buka localhost pada port 4173. `server.cjs` hanya menyajikan berkas lokal; bukan
 ## Publikasi GitHub Pages
 
 1. Gunakan repositori `hdrgcreativepartner-del/smartsantri`.
-2. Unggah isi proyek ini; pertahankan folder `dist` dan `.github/workflows`.
-3. Di **Settings → Pages → Build and deployment**, pilih sumber **GitHub Actions**.
-4. Push ke branch `main` memicu deployment. Untuk menjalankannya ulang, di **Actions → Deploy Smart Santri to GitHub Pages**, pilih **Run workflow**.
-5. Setelah sukses, buka URL dari hasil workflow.
+2. Berkas situs berada langsung di root repositori; pertahankan folder `assets` dan berkas `.nojekyll`.
+3. Di **Settings → Pages → Build and deployment**, gunakan **Deploy from a branch**, branch **main**, folder **/ (root)**. Ini sesuai konfigurasi repositori saat publikasi pertama.
+4. Push ke branch `main` memicu proses bawaan **pages build and deployment**.
+5. Setelah sukses, buka [Smart Santri](https://hdrgcreativepartner-del.github.io/smartsantri/).
 
-Workflow dipicu push ke `main` atau secara manual, menjalankan pemeriksaan dan tes, lalu menerbitkan hanya folder `dist`. Semua tautan aset memakai path relatif agar cocok untuk subpath repositori. Workflow tidak mengubah visibilitas repo, membeli hosting/domain, atau menanam token dalam kode browser.
+Workflow **Check Smart Santri** menjalankan pemeriksaan JavaScript dan tes pada push/PR ke `main`, atau secara manual. Publikasi dilakukan oleh proses bawaan Pages dari branch; workflow pemeriksaan tidak membuat deployment kedua. Semua tautan aset memakai path relatif agar cocok untuk subpath repositori.
 
-Alternatif tanpa Actions: salin isi `dist` ke root branch Pages dan pilih **Deploy from a branch** beserta root folder pada Settings → Pages. Pilih salah satu metode publikasi.
+Untuk hosting statis berbayar, unggah `index.html`, `portal.html`, seluruh berkas `.css` dan `.js` di root, serta folder `assets`. Berkas server lokal, pengujian, dan workflow tidak dibutuhkan oleh hosting. Fitur operasional bersama tetap memerlukan backend sebagaimana dijelaskan di `PRODUKSI.md`.
 
 ## Struktur
 
-- `dist/index.html`, `styles.css`, `app.js`: landing page.
-- `dist/portal.html`, `portal.css`, `portal.js`: web app, navigasi, formulir, dan interaksi.
-- `dist/store.js`: model data, validasi, aturan peran trial, dan akses IndexedDB.
-- `dist/assets/`, `fonts.css`: aset dan font lokal.
-- `.github/workflows/pages.yml`: workflow GitHub Pages.
+- `index.html`, `styles.css`, `app.js`: landing page.
+- `portal.html`, `portal.css`, `portal.js`: web app, navigasi, formulir, dan interaksi.
+- `store.js`: model data, validasi, aturan peran trial, dan akses IndexedDB.
+- `assets/`, `fonts.css`: aset dan font lokal.
+- `.github/workflows/check.yml`: pemeriksaan otomatis; Pages menerbitkan root branch `main`.
 - `server.cjs`: server pengembangan tanpa dependensi.
 - `tests/model.test.cjs`: 15 tes logika utama.
 
@@ -84,4 +84,4 @@ npm test
 
 Tes mencakup peran, penugasan kelas/mapel, keanggotaan eskul, absensi ganda dan WIB, penilaian berbobot, pengumpulan ganda, batas waktu, penguncian kunci jawaban, validasi berkas, dan rollback penyimpanan. Pembatasan model ini adalah perilaku trial, bukan pengganti keamanan server.
 
-Font DM Sans dari Google Fonts memakai SIL Open Font License; lisensi disertakan di `dist/assets/DM-Sans-OFL.txt`. Semua aset dimuat lokal setelah diterbitkan.
+Font DM Sans dari Google Fonts memakai SIL Open Font License; lisensi disertakan di `assets/DM-Sans-OFL.txt`. Semua aset dimuat lokal setelah diterbitkan.
