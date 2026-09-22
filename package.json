@@ -1,0 +1,13 @@
+{
+  "name": "smart-santri",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Trial web app sekolah SD/MI untuk GitHub Pages",
+  "scripts": {
+    "dev": "node server.cjs",
+    "start": "node server.cjs",
+    "test": "node --test tests/*.test.cjs",
+    "check": "node --check dist/store.js && node --check dist/portal.js && node --check dist/app.js"
+  },
+  "engines": { "node": ">=20" }
+}
